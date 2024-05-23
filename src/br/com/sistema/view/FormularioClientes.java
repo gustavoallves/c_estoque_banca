@@ -7,7 +7,11 @@ package br.com.sistema.view;
 
 import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.model.Clientes;
+import br.com.sistema.utilitarios.Utilitarios;
+import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +22,32 @@ public class FormularioClientes extends javax.swing.JFrame {
     /**
      * Creates new form FormularioClientes
      */
+    // metodo listar na tabela
+    public void listar(){
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.Listar();
+        DefaultTableModel dados = (DefaultTableModel) tabela.getModel();
+        dados.setNumRows(0);
+        for(Clientes c : lista){
+            dados.addRow(new Object[]{
+            c.getId(),
+            c.getNome(),
+            c.getRg(),
+            c.getCpf(),
+            c.getEmail(),
+            c.getTelefone(),
+            c.getCelular(),
+            c.getCep(),
+            c.getEndereco(),
+            c.getNumero(),
+            c.getComplemento(),
+            c.getBairro(),
+            c.getCidade(),
+            c.getEstado()
+            });
+        }
+    }
+    
     public FormularioClientes() {
         initComponents();
     }
@@ -70,7 +100,7 @@ public class FormularioClientes extends javax.swing.JFrame {
         txtPesquisaNome = new javax.swing.JTextField();
         btnPesquisaNome = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela_clientes = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         btnNovo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -79,8 +109,14 @@ public class FormularioClientes extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("tab1", jTabbedPane3);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Formulario de Cleintes");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -118,6 +154,11 @@ public class FormularioClientes extends javax.swing.JFrame {
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
+            }
+        });
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeKeyPressed(evt);
             }
         });
 
@@ -362,6 +403,11 @@ public class FormularioClientes extends javax.swing.JFrame {
                 txtPesquisaNomeActionPerformed(evt);
             }
         });
+        txtPesquisaNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisaNomeKeyReleased(evt);
+            }
+        });
 
         btnPesquisaNome.setText("Pesquisar");
         btnPesquisaNome.addActionListener(new java.awt.event.ActionListener() {
@@ -370,7 +416,7 @@ public class FormularioClientes extends javax.swing.JFrame {
             }
         });
 
-        tabela_clientes.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -378,7 +424,12 @@ public class FormularioClientes extends javax.swing.JFrame {
                 "id", "nome", "e-mail", "celular", "telefone", "cep", "endereço", "numero", "bairro", "cidade", "complemento", "UF", "RG", "CPF"
             }
         ));
-        jScrollPane1.setViewportView(tabela_clientes);
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabela);
 
         javax.swing.GroupLayout painel_consultaLayout = new javax.swing.GroupLayout(painel_consulta);
         painel_consulta.setLayout(painel_consultaLayout);
@@ -492,6 +543,7 @@ public class FormularioClientes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
@@ -535,7 +587,9 @@ public class FormularioClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_cbUFActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        // TODO add your handling code here:
+        // Limpa os campos de dados
+        Utilitarios util = new Utilitarios();
+        util.LimpaTela(painel_dados_pessoais);
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void txtPesquisaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaNomeActionPerformed
@@ -543,15 +597,65 @@ public class FormularioClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisaNomeActionPerformed
 
     private void btnPesquisaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaNomeActionPerformed
-        // TODO add your handling code here:
+        // Filtra o nome na lista
+        String nome = "%"+txtPesquisaNome.getText()+"%";
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.Filtrar(nome);
+        DefaultTableModel dados = (DefaultTableModel) tabela.getModel();
+        dados.setNumRows(0);
+        for(Clientes c : lista){
+            dados.addRow(new Object[]{
+            c.getId(),
+            c.getNome(),
+            c.getRg(),
+            c.getCpf(),
+            c.getEmail(),
+            c.getTelefone(),
+            c.getCelular(),
+            c.getCep(),
+            c.getEndereco(),
+            c.getNumero(),
+            c.getComplemento(),
+            c.getBairro(),
+            c.getCidade(),
+            c.getEstado()
+            });
+        }
     }//GEN-LAST:event_btnPesquisaNomeActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        // Editar clientes e limpar os campos ao apertar no botao editar
+        Clientes obj = new Clientes();
+        obj.setNome(txtNome.getText());
+        obj.setRg(txtRg.getText());
+        obj.setCpf(txtCpf.getText());
+        obj.setEmail(txtEmail.getText());
+        obj.setTelefone(txtTelefone.getText());
+        obj.setCelular(txtCelular.getText());
+        obj.setCep(txtCep.getText());
+        obj.setEndereco(txtEndereco.getText());
+        obj.setNumero(Integer.valueOf(txtNumero.getText()));
+        obj.setComplemento(txtComplemento.getText());
+        obj.setBairro(txtBairro.getText());
+        obj.setCidade(txtCidade.getText());
+        obj.setEstado(cbUF.getSelectedItem().toString());
+        obj.setId(Integer.valueOf(txtCodigo.getText()));
+        
+        ClientesDAO dao = new ClientesDAO();
+        dao.Editar(obj);
+        
+        Utilitarios util = new Utilitarios();
+        util.LimpaTela(painel_dados_pessoais);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
+        Clientes obj = new Clientes();
+        obj.setId(Integer.valueOf(txtCodigo.getText()));
+        ClientesDAO dao = new ClientesDAO();
+        dao.Excluir(obj);
+        Utilitarios util = new Utilitarios();
+        util.LimpaTela(painel_dados_pessoais);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -559,7 +663,7 @@ public class FormularioClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        // Salvar clientes e limpar os campos ao apertar no botao salvar
         Clientes obj = new Clientes();
         obj.setNome(txtNome.getText());
         obj.setRg(txtRg.getText());
@@ -577,10 +681,13 @@ public class FormularioClientes extends javax.swing.JFrame {
         
         ClientesDAO dao = new ClientesDAO();
         dao.Salvar(obj);
+        
+        Utilitarios util = new Utilitarios();
+        util.LimpaTela(painel_dados_pessoais);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        // Buscar cliente na lista ao apertar no botao pesquisar
         String nome = txtNome.getText();
         Clientes obj = new Clientes();
         ClientesDAO dao = new ClientesDAO();
@@ -605,6 +712,87 @@ public class FormularioClientes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado! ");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        listar();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void txtPesquisaNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaNomeKeyReleased
+        // Lista em tempo real
+        String nome = "%"+txtPesquisaNome.getText()+"%";
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.Filtrar(nome);
+        DefaultTableModel dados = (DefaultTableModel) tabela.getModel();
+        dados.setNumRows(0);
+        for(Clientes c : lista){
+            dados.addRow(new Object[]{
+            c.getId(),
+            c.getNome(),
+            c.getRg(),
+            c.getCpf(),
+            c.getEmail(),
+            c.getTelefone(),
+            c.getCelular(),
+            c.getCep(),
+            c.getEndereco(),
+            c.getNumero(),
+            c.getComplemento(),
+            c.getBairro(),
+            c.getCidade(),
+            c.getEstado()
+            });
+        }
+    }//GEN-LAST:event_txtPesquisaNomeKeyReleased
+
+    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
+        // Ao pressionar enter busca o usuario no banco de dados.
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            String nome = txtNome.getText();
+        Clientes obj = new Clientes();
+        ClientesDAO dao = new ClientesDAO();
+        
+        obj = dao.BuscarCliente(nome);
+        if(obj.getNome() != null){
+            txtCodigo.setText(String.valueOf(obj.getId()));
+            txtNome.setText(obj.getNome());
+            txtRg.setText(obj.getRg());
+            txtCpf.setText(obj.getCpf());
+            txtEmail.setText(obj.getEmail());
+            txtTelefone.setText(obj.getTelefone());
+            txtCelular.setText(obj.getCelular());
+            txtCep.setText(obj.getCep());
+            txtEndereco.setText(obj.getEndereco());
+            txtNumero.setText(String.valueOf(obj.getNumero()));
+            txtComplemento.setText(obj.getComplemento());
+            txtBairro.setText(obj.getBairro());
+            txtCidade.setText(obj.getCidade());
+            cbUF.setSelectedItem(obj.getEstado());
+        }else{
+            JOptionPane.showMessageDialog(null, "Cliente não encontrado! ");
+        }
+        }
+            
+    }//GEN-LAST:event_txtNomeKeyPressed
+
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        // Ao clicar na tabela, os dados irão para a guia Dados pessoais
+        painel_guias.setSelectedIndex(0);
+        txtCodigo.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        txtNome.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
+        txtRg.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
+        txtCpf.setText(tabela.getValueAt(tabela.getSelectedRow(), 3).toString());
+        txtEmail.setText(tabela.getValueAt(tabela.getSelectedRow(), 4).toString());
+        txtTelefone.setText(tabela.getValueAt(tabela.getSelectedRow(), 5).toString());
+        txtCelular.setText(tabela.getValueAt(tabela.getSelectedRow(), 6).toString());
+        txtCep.setText(tabela.getValueAt(tabela.getSelectedRow(), 7).toString());
+        txtEndereco.setText(tabela.getValueAt(tabela.getSelectedRow(), 8).toString());
+        txtNumero.setText(tabela.getValueAt(tabela.getSelectedRow(), 9).toString());
+        txtComplemento.setText(tabela.getValueAt(tabela.getSelectedRow(), 10).toString());
+        txtBairro.setText(tabela.getValueAt(tabela.getSelectedRow(), 11).toString());
+        txtCidade.setText(tabela.getValueAt(tabela.getSelectedRow(), 12).toString());
+        cbUF.setSelectedItem(tabela.getValueAt(tabela.getSelectedRow(), 13).toString());
+    }//GEN-LAST:event_tabelaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -672,7 +860,7 @@ public class FormularioClientes extends javax.swing.JFrame {
     private javax.swing.JPanel painel_consulta;
     private javax.swing.JPanel painel_dados_pessoais;
     private javax.swing.JTabbedPane painel_guias;
-    private javax.swing.JTable tabela_clientes;
+    private javax.swing.JTable tabela;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JFormattedTextField txtCelular;
     private javax.swing.JFormattedTextField txtCep;
