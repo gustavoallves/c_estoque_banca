@@ -7,6 +7,7 @@ package br.com.sistema.view;
 
 import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.model.Clientes;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -79,6 +80,7 @@ public class FormularioClientes extends javax.swing.JFrame {
         jTabbedPane2.addTab("tab1", jTabbedPane3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -104,6 +106,7 @@ public class FormularioClientes extends javax.swing.JFrame {
 
         jLabel2.setText("Código:");
 
+        txtCodigo.setEditable(false);
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoActionPerformed(evt);
@@ -119,6 +122,11 @@ public class FormularioClientes extends javax.swing.JFrame {
         });
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("E-mail:");
 
@@ -335,12 +343,13 @@ public class FormularioClientes extends javax.swing.JFrame {
                     .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(painel_dados_pessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(painel_dados_pessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painel_dados_pessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel14)
-                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painel_dados_pessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -469,16 +478,16 @@ public class FormularioClientes extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(painel_guias, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnNovo)
                             .addComponent(btnSalvar)
                             .addComponent(btnEditar)))
-                    .addComponent(btnExcluir)
-                    .addComponent(btnImprimir))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnExcluir)
+                        .addComponent(btnImprimir)))
                 .addContainerGap())
         );
 
@@ -569,6 +578,33 @@ public class FormularioClientes extends javax.swing.JFrame {
         ClientesDAO dao = new ClientesDAO();
         dao.Salvar(obj);
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        String nome = txtNome.getText();
+        Clientes obj = new Clientes();
+        ClientesDAO dao = new ClientesDAO();
+        
+        obj = dao.BuscarCliente(nome);
+        if(obj.getNome() != null){
+            txtCodigo.setText(String.valueOf(obj.getId()));
+            txtNome.setText(obj.getNome());
+            txtRg.setText(obj.getRg());
+            txtCpf.setText(obj.getCpf());
+            txtEmail.setText(obj.getEmail());
+            txtTelefone.setText(obj.getTelefone());
+            txtCelular.setText(obj.getCelular());
+            txtCep.setText(obj.getCep());
+            txtEndereco.setText(obj.getEndereco());
+            txtNumero.setText(String.valueOf(obj.getNumero()));
+            txtComplemento.setText(obj.getComplemento());
+            txtBairro.setText(obj.getBairro());
+            txtCidade.setText(obj.getCidade());
+            cbUF.setSelectedItem(obj.getEstado());
+        }else{
+            JOptionPane.showMessageDialog(null, "Cliente não encontrado! ");
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
