@@ -1,0 +1,117 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 01-Dez-2023 às 01:11
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 8.0.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `sistemaestoque`
+--
+
+--
+-- Estrutura da tabela `tb_funcionarios`
+--
+
+CREATE TABLE `tb_funcionarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `rg` varchar(30) DEFAULT NULL,
+  `cpf` varchar(20) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `senha` varchar(10) DEFAULT NULL,
+  `cargo` varchar(100) DEFAULT NULL,
+  `nivel_acesso` varchar(50) DEFAULT NULL,
+  `telefone` varchar(30) DEFAULT NULL,
+  `celular` varchar(30) DEFAULT NULL,
+  `cep` varchar(100) DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `complemento` varchar(200) DEFAULT NULL,
+  `bairro` varchar(100) DEFAULT NULL,
+  `cidade` varchar(100) DEFAULT NULL,
+  `estado` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_funcionarios`
+--
+
+INSERT INTO `tb_funcionarios` (`id`, `nome`, `rg`, `cpf`, `email`, `senha`, `cargo`, `nivel_acesso`, `telefone`, `celular`, `cep`, `endereco`, `numero`, `complemento`, `bairro`, `cidade`, `estado`) VALUES
+(4, 'ricardo azarias', '11.111.111', '111.111.111-11', 'helio@gmail.com.br', '000', 'entregador', 'Usuário', '(11)1111-1111', '(99)9 9999-9999', '37440-000', 'rua das flores mais lindas', 55, 'alameda1', 'da pedra1', 'cerranos1', 'MT'),
+(6, 'charlie abraao', '11.111.111', '111.111.111-11', 'helio@gmail.com', '000', 'entregador', 'Administrador', '(11)1111-1111', '(99)9 9999-9999', '37440-000', 'rua das flores mais lindas', 55, 'alameda', 'da pedra', 'cerranos', 'MT');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_produtos`
+--
+
+CREATE TABLE `tb_produtos` (
+  `id` int(11) NOT NULL,
+  `descricao` varchar(100) DEFAULT NULL,
+  `preco` decimal(10,2) DEFAULT NULL,
+  `qtd_estoque` int(11) DEFAULT NULL,
+  `for_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_produtos`
+--
+
+INSERT INTO `tb_produtos` (`id`, `descricao`, `preco`, `qtd_estoque`, `for_id`) VALUES
+(5, 'tablet', '1500.00', 17, 3),
+(6, 'relogio', '155.00', 0, 1),
+(7, 'celular', '1100.00', 27, 1),
+(8, 'computador sang sung', '16000.00', 11, 5),
+(9, 'teclado de pc', '100.00', 72, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Índices para tabela `tb_funcionarios`
+--
+ALTER TABLE `tb_funcionarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tb_produtos`
+--
+ALTER TABLE `tb_produtos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `for_id` (`for_id`);
+--
+-- AUTO_INCREMENT de tabela `tb_funcionarios`
+--
+ALTER TABLE `tb_funcionarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `tb_produtos`
+--
+ALTER TABLE `tb_produtos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Limitadores para a tabela `tb_produtos`
+--
+ALTER TABLE `tb_produtos`
+  ADD CONSTRAINT `tb_produtos_ibfk_1` FOREIGN KEY (`for_id`) REFERENCES `tb_fornecedores` (`id`);
+
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
