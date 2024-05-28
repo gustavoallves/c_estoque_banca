@@ -5,9 +5,7 @@
  */
 package br.com.sistema.view;
 
-import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.dao.FuncionariosDAO;
-import br.com.sistema.model.Clientes;
 import br.com.sistema.model.Funcionarios;
 import br.com.sistema.utilitarios.Utilitarios;
 import java.awt.event.KeyEvent;
@@ -22,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class FormularioFuncionarios extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormularioClientes
+     * Creates new form FormularioFuncionarios
      */
     // metodo listar na tabela
     public void listar(){
