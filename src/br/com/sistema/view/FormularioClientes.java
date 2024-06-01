@@ -110,7 +110,7 @@ public class FormularioClientes extends javax.swing.JFrame {
         jTabbedPane2.addTab("tab1", jTabbedPane3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Formulario de Cleintes");
+        setTitle("Formulário de Clientes");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -421,7 +421,7 @@ public class FormularioClientes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nome", "e-mail", "celular", "telefone", "cep", "endereço", "numero", "bairro", "cidade", "complemento", "UF", "RG", "CPF"
+                "Id", "Nome", "E-mail", "Celular", "Telefone", "CEP", "Endereço", "N°", "Bairro", "Cidade", "complemento", "UF", "RG", "CPF"
             }
         ));
         tabela.addMouseListener(new java.awt.event.MouseAdapter() {

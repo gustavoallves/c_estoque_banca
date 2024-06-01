@@ -22,7 +22,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Formul&#xe1;rio de Clientes"/>
+    <Property name="title" type="java.lang.String" value="Formul&#xe1;rio de Fornecedores"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -126,7 +126,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cadastro de Clientes"/>
+            <Property name="text" type="java.lang.String" value="Cadastro de Fornecedores"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -211,37 +211,28 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtCnpj" max="32767" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Component id="txtBairro" min="-2" pref="180" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                      <Component id="txtRg" min="-2" pref="180" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtCpf" min="-2" pref="98" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                      <Component id="txtCidade" min="-2" pref="180" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                      <Component id="txtComplemento" min="-2" pref="180" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="cbUF" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="txtCidade" min="-2" pref="180" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="txtComplemento" min="-2" pref="180" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cbUF" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="50" max="32767" attributes="0"/>
@@ -294,18 +285,12 @@
                           <Component id="txtComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbUF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtRg" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -480,25 +465,15 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtRg">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRgActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="RG:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CPF:"/>
+                <Property name="text" type="java.lang.String" value="CNPJ:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtCpf">
+            <Component class="javax.swing.JFormattedTextField" name="txtCnpj">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="###.###.###-##" subtype="-1" type="5"/>
+                  <Format format="##.###.###/####-##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
             </Component>
@@ -507,8 +482,8 @@
         <Container class="javax.swing.JPanel" name="painel_consulta">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Consulta de Clientes">
-                <Property name="tabTitle" type="java.lang.String" value="Consulta de Clientes"/>
+              <JTabbedPaneConstraints tabName="Consulta de Fornecedores">
+                <Property name="tabTitle" type="java.lang.String" value="Consulta de Fornecedores"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -581,30 +556,24 @@
                 <Component class="javax.swing.JTable" name="tabela">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="14" rowCount="0">
-                        <Column editable="true" title="Id" type="java.lang.Object"/>
+                      <Table columnCount="13" rowCount="0">
+                        <Column editable="true" title="C&#xf3;digo" type="java.lang.Object"/>
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
+                        <Column editable="true" title="CNPJ" type="java.lang.Object"/>
                         <Column editable="true" title="E-mail" type="java.lang.Object"/>
-                        <Column editable="true" title="Celular" type="java.lang.Object"/>
                         <Column editable="true" title="Telefone" type="java.lang.Object"/>
+                        <Column editable="true" title="Celular" type="java.lang.Object"/>
                         <Column editable="true" title="CEP" type="java.lang.Object"/>
                         <Column editable="true" title="Endere&#xe7;o" type="java.lang.Object"/>
                         <Column editable="true" title="N&#xb0;" type="java.lang.Object"/>
+                        <Column editable="true" title="Complemento" type="java.lang.Object"/>
                         <Column editable="true" title="Bairro" type="java.lang.Object"/>
                         <Column editable="true" title="Cidade" type="java.lang.Object"/>
-                        <Column editable="true" title="complemento" type="java.lang.Object"/>
-                        <Column editable="true" title="UF" type="java.lang.Object"/>
-                        <Column editable="true" title="RG" type="java.lang.Object"/>
-                        <Column editable="true" title="CPF" type="java.lang.Object"/>
+                        <Column editable="true" title="Estado" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
