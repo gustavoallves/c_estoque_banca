@@ -115,6 +115,30 @@ public class ProdutosDAO {
         return null;
     }
     
+    public Produtos BuscarProdutosCodigo(int id){
+        try {
+            String sql = "select p.id,p.descricao,p.preco,p.qtd_estoque,f.nome from tb_produtos as p inner join tb_fornecedores as f on(p.for_id=f.id) where p.id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,id);
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+            if(rs.next()){
+                obj.setId(rs.getInt("p.id"));
+                obj.setDescricao(rs.getString("p.descricao"));
+                obj.setPreco(rs.getDouble("p.preco"));
+                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+                
+                f.setNome(rs.getString("f.nome"));
+                obj.setFornecedores(f);
+            }
+            return obj;
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar o produto: " + erro);
+        }
+        return null;
+    }
+    
     public List<Produtos>Listar(){
         List<Produtos> lista = new ArrayList<>();
         try {
@@ -164,5 +188,49 @@ public class ProdutosDAO {
                 JOptionPane.showMessageDialog(null, "Erro ao criar lista: " + erro);
         }
         return null;
+    }
+    
+    public void adicionarEstoque(int id, int qtd_nova){
+        try {
+            String sql = "update tb_produtos set qtd_estoque=? where id=?";
+            PreparedStatement stmt= conn.prepareStatement(sql);
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "Adicionado com sucesso ao estoque!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar ao estoque! " + e);
+        }
+    }
+    
+    public void baixaEstoque(int id, int qtd_nova){
+        try {
+            String sql = "update tb_produtos set qtd_estoque=? where id=?";
+            PreparedStatement stmt= conn.prepareStatement(sql);
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "Baixa no estoque efetuada com sucesso!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao dar baixa no estoque! " + e);
+        }
+    }
+    
+    public int retornaQtdAtualEstoque(int id){
+        try {
+            int qtd_atual_estoque = 0;
+            String sql = "select qtd_estoque from tb_produtos where id=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                qtd_atual_estoque = (rs.getInt("qtd_estoque"));
+            }
+            return qtd_atual_estoque;
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao retornar a quantidade atual do estoque: "+e);
+        }
     }
 }

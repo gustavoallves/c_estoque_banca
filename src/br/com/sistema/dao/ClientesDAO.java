@@ -110,7 +110,7 @@ public class ClientesDAO {
     
     public Clientes BuscarCliente(String nome){
         try {
-            String sql = "select * from tb_clientes where nome =?";
+            String sql = "select * from tb_clientes where nome=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,nome);
             ResultSet rs = stmt.executeQuery();
@@ -141,7 +141,7 @@ public class ClientesDAO {
     public List<Clientes>Listar(){
         List<Clientes> lista = new ArrayList<>();
         try {
-            String sql = "select  * from tb_clientes";
+            String sql = "select * from tb_clientes";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             
@@ -166,6 +166,36 @@ public class ClientesDAO {
             return lista;
         } catch (Exception erro) {
                 JOptionPane.showMessageDialog(null, "Erro ao criar lista: " + erro);
+        }
+        return null;
+    }
+    
+    public Clientes BuscarClienteCPF(String cpf){
+        try {
+            String sql = "select * from tb_clientes where cpf=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1,cpf);
+            ResultSet rs = stmt.executeQuery();
+            Clientes obj = new Clientes();
+            if(rs.next()){
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setEstado(rs.getString("estado"));  
+            }
+            return obj;
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente: " + erro);
         }
         return null;
     }
