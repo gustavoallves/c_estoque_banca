@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author crist
  */
-public class FormularioFuncionarios extends javax.swing.JFrame {
+public class FormularioFuncionarios extends javax.swing.JDialog {
 
     /**
      * Creates new form FormularioFuncionarios
@@ -51,7 +51,8 @@ public class FormularioFuncionarios extends javax.swing.JFrame {
         }
     }
     
-    public FormularioFuncionarios() {
+    public FormularioFuncionarios(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
     }
 
@@ -272,7 +273,7 @@ public class FormularioFuncionarios extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        cbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRADOR", "USUÁRIO" }));
+        cbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
         cbNivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbNivelActionPerformed(evt);
@@ -377,7 +378,7 @@ public class FormularioFuncionarios extends javax.swing.JFrame {
                                 .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(cbUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         painel_dados_pessoaisLayout.setVerticalGroup(
             painel_dados_pessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -894,7 +895,7 @@ public class FormularioFuncionarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioFuncionarios().setVisible(true);
+//                new FormularioFuncionarios().setVisible(true);
             }
         });
     }

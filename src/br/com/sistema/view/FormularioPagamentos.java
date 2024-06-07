@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author crist
  */
-public class FormularioPagamentos extends javax.swing.JFrame {
+public class FormularioPagamentos extends javax.swing.JDialog {
     ItensVendas obj = new ItensVendas();
     Clientes clientes = new Clientes();
     DefaultTableModel meus_produtos;
@@ -29,7 +29,9 @@ public class FormularioPagamentos extends javax.swing.JFrame {
     /**
      * Creates new form FormularioPagamentos
      */
-    public FormularioPagamentos() {
+
+    public FormularioPagamentos(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
         txtDinheiro.setText("0");
         txtCartao.setText("0");
@@ -236,7 +238,7 @@ public class FormularioPagamentos extends javax.swing.JFrame {
             VendasDAO vd = new VendasDAO();
             vd.salvar(v);
             v.setId(vd.retornaUltimoIdVenda());
-            JOptionPane.showMessageDialog(null, "ID da última venda: "+v.getId());
+//            JOptionPane.showMessageDialog(null, "ID da última venda: "+v.getId());
             
             for(int i=0; i<meus_produtos.getRowCount(); i++){
                 int qtd_estoque, qtd_comprada, qtd_atualizada;
@@ -254,6 +256,9 @@ public class FormularioPagamentos extends javax.swing.JFrame {
                 pd.baixaEstoque(p.getId(), qtd_atualizada);
                 ItensVendasDAO ivd = new ItensVendasDAO();
                 ivd.salvar(item);
+                dispose();
+                FormularioVendas fv = new FormularioVendas();
+                fv.setVisible(true);
             }
         }else{
             JOptionPane.showMessageDialog(null, "Não foi possível fazer a venda! O valor pago é menor que o valor da venda!");
@@ -291,7 +296,7 @@ public class FormularioPagamentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioPagamentos().setVisible(true);
+//                new FormularioPagamentos().setVisible(true);
             }
         });
     }

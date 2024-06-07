@@ -85,4 +85,21 @@ public class VendasDAO {
             throw new RuntimeException("Erro ao criar o histórico de vendas!" +e);
         }
     }
+    
+    public double posicaoDoDia(LocalDate data_venda){
+        try {
+            double total_do_dia = 0;
+            String sql = "select sum(total_venda)as total from tb_vendas where data_venda=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, data_venda.toString());
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                total_do_dia = rs.getDouble("total");
+            }
+            return total_do_dia;
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao retornar a posição do dia: " +e);
+        }
+    }
 }

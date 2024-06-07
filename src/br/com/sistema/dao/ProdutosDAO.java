@@ -212,7 +212,7 @@ public class ProdutosDAO {
             stmt.setInt(2, id);
             stmt.execute();
             stmt.close();
-            JOptionPane.showMessageDialog(null, "Baixa no estoque efetuada com sucesso!");
+//            JOptionPane.showMessageDialog(null, "Baixa no estoque efetuada com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao dar baixa no estoque! " + e);
         }

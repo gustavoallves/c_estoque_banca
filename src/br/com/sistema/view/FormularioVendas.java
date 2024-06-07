@@ -548,7 +548,7 @@ public class FormularioVendas extends javax.swing.JFrame {
         listar();
 
         Date agora = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat(("dd/MM/yyyy | HH:mm:ss"));
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         String dataFormatada = formato.format(agora);
         txtData.setText(dataFormatada);
     }//GEN-LAST:event_formWindowActivated
@@ -661,7 +661,7 @@ public class FormularioVendas extends javax.swing.JFrame {
         obj = daoc.BuscarClienteCPF(cpf);
         
         if(obj.getNome() !=null && obj.getCpf() !=null){
-            FormularioPagamentos telaPag = new FormularioPagamentos();
+            FormularioPagamentos telaPag = new FormularioPagamentos(this, true);
             telaPag.clientes = obj;
             telaPag.meus_produtos = meus_produtos;
             telaPag.txtTotalVenda.setText(String.valueOf(total));

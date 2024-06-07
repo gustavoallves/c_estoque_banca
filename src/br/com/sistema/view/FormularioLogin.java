@@ -12,13 +12,18 @@ import javax.swing.JOptionPane;
  *
  * @author crist
  */
-public class FormularioLogin extends javax.swing.JFrame {
+public class FormularioLogin extends javax.swing.JDialog {
 
     /**
      * Creates new form FormularioLogin
      */
-    public FormularioLogin() {
+    public FormularioLogin(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
+    }
+
+    public FormularioLogin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -188,7 +193,7 @@ public class FormularioLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioLogin().setVisible(true);
+//                new FormularioLogin().setVisible(true);
             }
         });
     }

@@ -9,12 +9,13 @@ package br.com.sistema.view;
  *
  * @author crist
  */
-public class FormularioDetalheVenda extends javax.swing.JFrame {
+public class FormularioDetalheVenda extends javax.swing.JDialog {
 
     /**
      * Creates new form FormularioDetalheVenda
      */
-    public FormularioDetalheVenda() {
+    public FormularioDetalheVenda(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
     }
 
@@ -228,7 +229,7 @@ public class FormularioDetalheVenda extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioDetalheVenda().setVisible(true);
+//                new FormularioDetalheVenda().setVisible(true);
             }
         });
     }

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author crist
  */
-public class FormularioEstoque extends javax.swing.JFrame {
+public class FormularioEstoque extends javax.swing.JDialog {
     int idProduto, qtd_atualizada;
 
     /**
@@ -42,7 +42,8 @@ public class FormularioEstoque extends javax.swing.JFrame {
         }
     }
     
-    public FormularioEstoque() {
+    public FormularioEstoque(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
     }
 
@@ -524,7 +525,7 @@ public class FormularioEstoque extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioEstoque().setVisible(true);
+//                new FormularioEstoque().setVisible(true);
             }
         });
     }

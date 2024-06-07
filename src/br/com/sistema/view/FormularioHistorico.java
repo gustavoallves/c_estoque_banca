@@ -185,7 +185,8 @@ public class FormularioHistorico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarVendaActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        FormularioDetalheVenda fdv = new FormularioDetalheVenda();
+        FormularioDetalheVenda fdv = new FormularioDetalheVenda(this, true);
+        fdv.setModal(rootPaneCheckingEnabled);
         fdv.txtIdVenda.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
         fdv.txtCliente.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
         fdv.txtDataVenda.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
