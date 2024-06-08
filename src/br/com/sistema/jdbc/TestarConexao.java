@@ -15,10 +15,10 @@ public class TestarConexao {
     
     public static void main(String[] args) {
         try {
-            new ConexaoBanco().pegarConexao();
-            JOptionPane.showMessageDialog(null, "conectado com sucesso ao banco de dados");
+            new ConexaoBanco().getConexao();
+            JOptionPane.showMessageDialog(null, "Conectado com sucesso ao banco de dados");
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "erro ao se conectar ao banco de dados:" + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao se conectar ao banco de dados:" + erro.getMessage());
         }
     }
     

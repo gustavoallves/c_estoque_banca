@@ -15,16 +15,22 @@ import javax.swing.JOptionPane;
  * @author crist
  */
 public class ConexaoBanco {
-    final private String url = "jdbc:mysql://localhost/sistemaestoque";
+    final private String url = "jdbc:mysql://localhost:3306/sistemaestoque";
     final private String usuario = "root";
     final private String senha = "";
     
-    public Connection pegarConexao() {
+    public static Connection conn;
+    
+    public Connection getConexao() {
         try {
-            return DriverManager.getConnection(url,usuario,senha);
+            if(conn == null){
+                conn = DriverManager.getConnection(url,usuario,senha);
+                return conn;
+            }
+            return conn;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "erro ao se conectar ao banco de dados:" + e);
+            JOptionPane.showMessageDialog(null, "Erro ao se conectar ao banco de dados:" + e);
+            return null;
         }
-        return null;
     }
 }

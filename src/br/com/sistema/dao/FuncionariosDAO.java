@@ -25,7 +25,7 @@ public class FuncionariosDAO {
     private Connection conn;
     
     public FuncionariosDAO(){
-        this.conn = new ConexaoBanco().pegarConexao();
+        this.conn = new ConexaoBanco().getConexao();
     }
     
     

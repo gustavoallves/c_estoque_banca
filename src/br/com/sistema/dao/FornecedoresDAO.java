@@ -26,7 +26,7 @@ public class FornecedoresDAO {
     private Connection conn;
     
     public FornecedoresDAO(){
-        this.conn = new ConexaoBanco().pegarConexao();
+        this.conn = new ConexaoBanco().getConexao();
     }
     
     
