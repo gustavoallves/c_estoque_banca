@@ -52,7 +52,7 @@ public class FormularioDetalheVenda extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Detalhe da venda");
@@ -92,10 +92,13 @@ public class FormularioDetalheVenda extends javax.swing.JDialog {
         txtDataVenda.setEnabled(false);
 
         txtObs.setColumns(20);
+        txtObs.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtObs.setLineWrap(true);
         txtObs.setRows(5);
         txtObs.setEnabled(false);
         jScrollPane1.setViewportView(txtObs);
 
+        btnImprimir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnImprimir.setText("Imprimir 2° via");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

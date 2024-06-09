@@ -101,16 +101,20 @@ public class FormularioPagamentos extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel7.setText("Total:");
 
+        txtCartao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtCartao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtTotalVenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTotalVenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTotalVenda.setEnabled(false);
 
+        txtDinheiro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtDinheiro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        txtCheque.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtCheque.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        txtTroco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtTroco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTroco.setEnabled(false);
         txtTroco.addActionListener(new java.awt.event.ActionListener() {
@@ -120,9 +124,12 @@ public class FormularioPagamentos extends javax.swing.JDialog {
         });
 
         txtObservacoes.setColumns(20);
+        txtObservacoes.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtObservacoes.setLineWrap(true);
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
 
+        btnPagar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPagar.setText("PAGAR");
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

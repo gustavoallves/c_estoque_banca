@@ -17,7 +17,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Formul&#xe1;rio de Clientes"/>
+                <Property name="text" type="java.lang.String" value="Cadastro de Clientes"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
@@ -38,7 +38,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+V"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Formul&#xe1;rio de Funcion&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Cadastro de Funcion&#xe1;rios"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_funcionarioActionPerformed"/>
@@ -49,20 +49,23 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="JMenu02">
+        <Menu class="javax.swing.JMenu" name="menu_fornecedoress">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/br/com/sistema/imagens/fornecedores.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fornecedores"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menu_fornecedores">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+B"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Formul&#xe1;rio de Fornecedores"/>
+                <Property name="text" type="java.lang.String" value="Cadastro de Fornecedores"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_fornecedoresActionPerformed"/>
@@ -116,7 +119,7 @@
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                       <KeyStroke key="Ctrl+P"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Formul&#xe1;rio de Produtos"/>
+                    <Property name="text" type="java.lang.String" value="Cadastro de Produtos"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem11ActionPerformed"/>
@@ -254,7 +257,7 @@
     <Container class="javax.swing.JDesktopPane" name="painel_desktop">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(image,0,0,getWidth(),getHeight(),this);&#xa;    }&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icon = new ImageIcon(getClass().getResource(&quot;/imgFundo/negro.jpg&quot;));&#xa;Image image = icon.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icon = new ImageIcon(getClass().getResource(&quot;/imgFundo/banca.jpg&quot;));&#xa;Image image = icon.getImage();"/>
       </AuxValues>
 
       <Layout>
@@ -276,11 +279,14 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="ff" red="ff" type="rgb"/>
+              <Color blue="ff" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Logado por:"/>
+                <TitledBorder title="Logado por:">
+                  <Font PropertyName="font" name="Tahoma" size="13" style="1"/>
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
@@ -293,7 +299,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblLogado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="762" max="32767" attributes="0"/>
+                      <EmptySpace pref="751" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -312,11 +318,23 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nome:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblLogado">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Jo&#xe3;o da Silva"/>
               </Properties>
             </Component>

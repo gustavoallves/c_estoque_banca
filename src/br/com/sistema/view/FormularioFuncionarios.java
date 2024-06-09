@@ -113,7 +113,6 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
         btnNovo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
 
         jTabbedPane2.addTab("tab1", jTabbedPane3);
@@ -171,6 +170,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
             }
         });
 
+        btnPesquisar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,6 +450,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
             }
         });
 
+        btnPesquisaNome.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPesquisaNome.setText("Pesquisar");
         btnPesquisaNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,7 +486,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
                     .addGroup(painel_consultaLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisaNome)
                         .addGap(442, 442, 442))))
@@ -505,6 +506,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
 
         painel_guias.addTab("Consulta de Funcionários", painel_consulta);
 
+        btnNovo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/add1.png"))); // NOI18N
         btnNovo.setText("NOVO");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -513,6 +515,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
             }
         });
 
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/editar.png"))); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -521,6 +524,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
             }
         });
 
+        btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/excluir.png"))); // NOI18N
         btnExcluir.setText("EXCLUIR");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -529,14 +533,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
             }
         });
 
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/printer.png"))); // NOI18N
-        btnImprimir.setText("IMPRIMIR");
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-
+        btnSalvar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/salvar.png"))); // NOI18N
         btnSalvar.setText("SALVAR");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -560,9 +557,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
                 .addComponent(btnEditar)
                 .addGap(56, 56, 56)
                 .addComponent(btnExcluir)
-                .addGap(46, 46, 46)
-                .addComponent(btnImprimir)
-                .addGap(48, 48, 48))
+                .addGap(136, 136, 136))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,9 +572,7 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
                             .addComponent(btnNovo)
                             .addComponent(btnSalvar)
                             .addComponent(btnEditar)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnExcluir)
-                        .addComponent(btnImprimir)))
+                    .addComponent(btnExcluir))
                 .addContainerGap())
         );
 
@@ -704,10 +697,6 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
         Utilitarios util = new Utilitarios();
         util.LimpaTela(painel_dados_pessoais);
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // Salvar funcionarios e limpar os campos ao apertar no botao salvar
@@ -903,7 +892,6 @@ public class FormularioFuncionarios extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisaNome;
     private javax.swing.JButton btnPesquisar;

@@ -35,7 +35,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/imgFundo/negro.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imgFundo/banca.jpg"));
         Image image = icon.getImage();
         painel_desktop = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
@@ -50,7 +50,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menu_funcionario = new javax.swing.JMenuItem();
-        JMenu02 = new javax.swing.JMenu();
+        menu_fornecedoress = new javax.swing.JMenu();
         menu_fornecedores = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -74,11 +74,15 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Logado por:"));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Logado por:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome:");
 
+        lblLogado.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblLogado.setForeground(new java.awt.Color(255, 255, 255));
         lblLogado.setText("João da Silva");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -90,7 +94,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogado)
-                .addContainerGap(762, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +124,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu1.setText("Clientes");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Formulário de Clientes");
+        jMenuItem1.setText("Cadastro de Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -134,7 +138,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu2.setText("Funcionários");
 
         menu_funcionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        menu_funcionario.setText("Formulário de Funcionários");
+        menu_funcionario.setText("Cadastro de Funcionários");
         menu_funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_funcionarioActionPerformed(evt);
@@ -144,19 +148,19 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        JMenu02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/fornecedores.png"))); // NOI18N
-        JMenu02.setText("Fornecedores");
+        menu_fornecedoress.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/fornecedores.png"))); // NOI18N
+        menu_fornecedoress.setText("Fornecedores");
 
         menu_fornecedores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        menu_fornecedores.setText("Formulário de Fornecedores");
+        menu_fornecedores.setText("Cadastro de Fornecedores");
         menu_fornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_fornecedoresActionPerformed(evt);
             }
         });
-        JMenu02.add(menu_fornecedores);
+        menu_fornecedoress.add(menu_fornecedores);
 
-        jMenuBar1.add(JMenu02);
+        jMenuBar1.add(menu_fornecedoress);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/produtos.png"))); // NOI18N
         jMenu4.setText("Produtos");
@@ -182,7 +186,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu8.add(jMenuItem5);
 
         jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setText("Formulário de Produtos");
+        jMenuItem11.setText("Cadastro de Produtos");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
@@ -307,8 +311,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_estoqueActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        FormularioLogin login = new FormularioLogin(this, true);
-        login.setModal(rootPaneCheckingEnabled);
+        FormularioLogin login = new FormularioLogin();
         this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
@@ -380,7 +383,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu JMenu02;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -402,6 +404,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogado;
     public javax.swing.JMenuItem menu_estoque;
     public javax.swing.JMenuItem menu_fornecedores;
+    public javax.swing.JMenu menu_fornecedoress;
     public javax.swing.JMenuItem menu_funcionario;
     private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables
