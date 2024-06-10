@@ -50,7 +50,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menu_funcionario = new javax.swing.JMenuItem();
-        JMenu02 = new javax.swing.JMenu();
+        menu_fornecedoress = new javax.swing.JMenu();
         menu_fornecedores = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -144,8 +144,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        JMenu02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/icons/8665476_id_card_icon.png"))); // NOI18N
-        JMenu02.setText("Fornecedores");
+        menu_fornecedoress.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/icons/8665476_id_card_icon.png"))); // NOI18N
+        menu_fornecedoress.setText("Fornecedores");
 
         menu_fornecedores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menu_fornecedores.setText("Formulário de Fornecedores");
@@ -154,9 +154,9 @@ public class AreaTrabalho extends javax.swing.JFrame {
                 menu_fornecedoresActionPerformed(evt);
             }
         });
-        JMenu02.add(menu_fornecedores);
+        menu_fornecedoress.add(menu_fornecedores);
 
-        jMenuBar1.add(JMenu02);
+        jMenuBar1.add(menu_fornecedoress);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/icons/9023829_shopping_bag_open_fill_icon.png"))); // NOI18N
         jMenu4.setText("Produtos");
@@ -379,7 +379,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu JMenu02;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -401,6 +400,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogado;
     public javax.swing.JMenuItem menu_estoque;
     public javax.swing.JMenuItem menu_fornecedores;
+    public javax.swing.JMenu menu_fornecedoress;
     public javax.swing.JMenuItem menu_funcionario;
     private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables
