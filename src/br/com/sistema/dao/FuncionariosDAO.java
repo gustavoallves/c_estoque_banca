@@ -238,7 +238,7 @@ public class FuncionariosDAO {
                 else if(rs.getString("nivel_acesso").equals("Usuário")){
                     AreaTrabalho at = new AreaTrabalho();
                     at.usuarioLogado = rs.getString("nome");
-                    at.menu_fornecedoress.setVisible(false);
+                    at.menu_fornecedores.setVisible(false);
                     at.menu_funcionario.setEnabled(false);
                     at.menu_estoque.setEnabled(false);
                     JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!\n"+at.usuarioLogado);

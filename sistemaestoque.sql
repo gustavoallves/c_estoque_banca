@@ -121,11 +121,11 @@ CREATE TABLE tb_produtos (
 );
 
 INSERT INTO tb_produtos (id, descricao, preco, qtd_estoque, for_id) VALUES
-(5, 'tablet', '1500.00', 17, 3),
-(6, 'relogio', '155.00', 0, 1),
-(7, 'celular', '1100.00', 27, 1),
-(8, 'computador sang sung', '16000.00', 11, 5),
-(9, 'teclado de pc', '100.00', 72, 1);
+(5, 'Jornal Extra', '1.20', 20, 3),
+(6, 'Jornal Globo', '5.00', 0, 1),
+(7, 'Revista Gibis', '10.00', 27, 1),
+(8, 'Revista Veja', '15.00', 11, 5),
+(9, 'Revista Sudoku', '10.00', 72, 1);
 
 CREATE TABLE tb_vendas (
   id SERIAL PRIMARY KEY,

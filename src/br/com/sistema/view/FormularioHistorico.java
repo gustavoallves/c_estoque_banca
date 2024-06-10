@@ -50,9 +50,9 @@ public class FormularioHistorico extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Histórico de Vendas");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(79, 82, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Histórico de Vendas");
@@ -74,7 +74,6 @@ public class FormularioHistorico extends javax.swing.JFrame {
 
         jLabel2.setText("Data inicio:");
 
-        btnPesquisarVenda.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPesquisarVenda.setText("Pesquisar");
         btnPesquisarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +127,7 @@ public class FormularioHistorico extends javax.swing.JFrame {
                         .addComponent(txtFim, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(btnPesquisarVenda)
-                        .addGap(0, 162, Short.MAX_VALUE))
+                        .addGap(0, 170, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );

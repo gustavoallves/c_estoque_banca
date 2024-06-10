@@ -81,6 +81,7 @@ public class FormularioProdutos extends javax.swing.JDialog {
         btnNovo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
 
         jTabbedPane2.addTab("tab1", jTabbedPane3);
@@ -94,7 +95,7 @@ public class FormularioProdutos extends javax.swing.JDialog {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(79, 82, 255));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -143,7 +144,6 @@ public class FormularioProdutos extends javax.swing.JDialog {
             }
         });
 
-        btnPesquisar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,9 +171,9 @@ public class FormularioProdutos extends javax.swing.JDialog {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 cbFornecedorAncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         cbFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,7 +222,7 @@ public class FormularioProdutos extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtQtdEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(81, 81, 81)))
-                        .addContainerGap(324, Short.MAX_VALUE))
+                        .addContainerGap(332, Short.MAX_VALUE))
                     .addGroup(painel_dados_pessoaisLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -267,7 +267,6 @@ public class FormularioProdutos extends javax.swing.JDialog {
             }
         });
 
-        btnPesquisa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPesquisa.setText("Pesquisar");
         btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,7 +302,7 @@ public class FormularioProdutos extends javax.swing.JDialog {
                     .addGroup(painel_consultaLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPesquisaDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                        .addComponent(txtPesquisaDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisa)
                         .addGap(442, 442, 442))))
@@ -323,7 +322,6 @@ public class FormularioProdutos extends javax.swing.JDialog {
 
         painel_guias.addTab("Consulta de Produtos", painel_consulta);
 
-        btnNovo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/add1.png"))); // NOI18N
         btnNovo.setText("NOVO");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -332,7 +330,6 @@ public class FormularioProdutos extends javax.swing.JDialog {
             }
         });
 
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/editar.png"))); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -341,7 +338,6 @@ public class FormularioProdutos extends javax.swing.JDialog {
             }
         });
 
-        btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/excluir.png"))); // NOI18N
         btnExcluir.setText("EXCLUIR");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -350,7 +346,14 @@ public class FormularioProdutos extends javax.swing.JDialog {
             }
         });
 
-        btnSalvar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/printer.png"))); // NOI18N
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sistema/imagens/salvar.png"))); // NOI18N
         btnSalvar.setText("SALVAR");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -365,8 +368,8 @@ public class FormularioProdutos extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(painel_guias)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNovo)
                 .addGap(49, 49, 49)
                 .addComponent(btnSalvar)
@@ -374,7 +377,9 @@ public class FormularioProdutos extends javax.swing.JDialog {
                 .addComponent(btnEditar)
                 .addGap(56, 56, 56)
                 .addComponent(btnExcluir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(btnImprimir)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +394,9 @@ public class FormularioProdutos extends javax.swing.JDialog {
                             .addComponent(btnNovo)
                             .addComponent(btnSalvar)
                             .addComponent(btnEditar)))
-                    .addComponent(btnExcluir))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnExcluir)
+                        .addComponent(btnImprimir)))
                 .addContainerGap())
         );
 
@@ -476,6 +483,10 @@ public class FormularioProdutos extends javax.swing.JDialog {
         Utilitarios util = new Utilitarios();
         util.LimpaTela(painel_dados_pessoais);
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // Salvar produtos ao apertar no botao salvar
@@ -647,6 +658,7 @@ public class FormularioProdutos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnPesquisar;

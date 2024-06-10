@@ -11,5 +11,8 @@
                 <root id="test.src.dir"/>
             </test-roots>
         </data>
+        <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">
+            <definitions>mysql-connector-j-8.4.0\nblibraries.properties</definitions>
+        </libraries>
     </configuration>
 </project>

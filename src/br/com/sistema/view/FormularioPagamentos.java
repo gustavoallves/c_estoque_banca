@@ -67,7 +67,7 @@ public class FormularioPagamentos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pagamentos");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(79, 82, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,20 +101,16 @@ public class FormularioPagamentos extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel7.setText("Total:");
 
-        txtCartao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtCartao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtTotalVenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTotalVenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTotalVenda.setEnabled(false);
 
-        txtDinheiro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtDinheiro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtCheque.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtCheque.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtTroco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtTroco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTroco.setEnabled(false);
         txtTroco.addActionListener(new java.awt.event.ActionListener() {
@@ -124,12 +120,9 @@ public class FormularioPagamentos extends javax.swing.JDialog {
         });
 
         txtObservacoes.setColumns(20);
-        txtObservacoes.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtObservacoes.setLineWrap(true);
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
 
-        btnPagar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnPagar.setText("PAGAR");
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
